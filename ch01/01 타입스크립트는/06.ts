@@ -1,3 +1,5 @@
+// ! 근데 어떤 문자가 잘못된것인지 타입스크립트는 구분하지 못한다.
+
 const states = [
   { name: 'Alabama', capitol: 'Montgomery' },
   { name: 'Alaska', capitol: 'Juneau' },
