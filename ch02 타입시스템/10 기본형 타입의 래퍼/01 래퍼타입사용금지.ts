@@ -9,6 +9,7 @@
  */
 
 
+
 // ! 기본형 타입은 메서드를 가지고 있지 않다.
 // * string에는 메서드가 없지만 String에는 메서드가 있고
 // * 기본형과 객체래퍼는 자유롭게 변환한다.
@@ -80,6 +81,11 @@ function isGreeting(phrase: String) {
 const s: String = 'primitive'
 const n: Number = 12
 const b: Boolean = true
+
+console.log(BigInt(123))
+console.log(new BigInt(1234))
+console.log(new String(123))
+// ? 빅인트는 뉴키워드를 사용하지 않게 만들어놓음
 
 
 export default {}

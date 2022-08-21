@@ -3,11 +3,12 @@
 
 type Option = {
 	title: string
-	[key: string]: unknown // 키값을 스트링으로 주면 다른 스트링키값의 타입에도 영향을 미침.
+	[ㅁㄴㅇ: string]: any // 키값을 스트링으로 주면 다른 스트링키값의 타입에도 영향을 미침.
 	[key: number]: number[]
 }
 let a: Option = {
 	title: 'index signature',
 	darkMode: true,
+  ㅁㄴㅇ: 123,
 	12: [2, 24],
 }

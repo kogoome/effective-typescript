@@ -33,6 +33,8 @@ interface Options {
 	darkMode?: boolean
 }
 function createWindow(options: Options) {}
+
+
 createWindow({
 	title: 'Spider Solitaire',
 	darkmode: true,

@@ -12,6 +12,7 @@ const a1: Person = { name: 'a', age: 20 }
 const bob = { name: 'Bob' } as Person // 객체의 부분집합 Person
 const b1 = {} as Person
 const b2 = { name: 'a', age: 20 } as Person
+const b3 = 3 as Person
 
 // ! 잘 사용되지 않는 타입단언 (리액트 컴포넌트 태그와 유사하기 때문에 잘 사용하지 않고 jsx에서 사용불가)
 const c1 = <Person>{}
