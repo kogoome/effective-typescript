@@ -2,13 +2,14 @@
 // * 약한 타입의 경우 모든 속성이 옵셔널하기 때문에 모든 객체를 포함할 수 있으나
 // * 이 경우 공통된 속성이 있는지 별도의 체크를 수행(hasCommonProperties) - 책 64p 가운데 문단 첫째줄
 // * 공통속성이 존재하지 않고 다른속성이 존재하면 오류를 나타냄
-// * 빈객체는 속성 자체가 부재하기 때문에 공통속성체크 회피
+// * 빈객체는 속성 자체가 부재하기 때문에 공통속성체크 회피 그냥 옵셔널만 처리해도 문제가 없음.
 
 
 /* 
-
+!심화학습
 공통속성체크 함수
 function hasCommonProperties(source: Type, target: Type, isComparingJsxAttributes: boolean) {
+    소스가 빈객체라면 포문이 안돌아가고 트루를 리턴할수 없음.
     for (const prop of getPropertiesOfType(source)) {
         타입소스에서 속성들 가져오고 for문 돌렸을때
         if (isKnownProperty(target, prop.escapedName, isComparingJsxAttributes)) {
@@ -23,23 +24,29 @@ function hasCommonProperties(source: Type, target: Type, isComparingJsxAttribute
 
 발동조건
 if (
-	isPerformingCommonPropertyChecks &&
+    위크타입이고 속성이 존재하면
+*	isPerformingCommonPropertyChecks &&
+    공통속성이 없으면
 *	!hasCommonProperties(source, target, isComparingJsxAttributes)
-) { 리포트에러에 대한 다양한 처리들 }
+) { 
+*   리포트에러에 대한 다양한 처리구문에서 타입체커가 오류 처리 
+}
 
+공통속성체크여부를 판단하는 플래그 변수
 const isPerformingCommonPropertyChecks =
 	(relation !== comparableRelation || (relation === comparableRelation && isLiteralType(source))) 
       && !(intersectionState & IntersectionState.Target) 
       && source.flags & (TypeFlags.Primitive | TypeFlags.Object | TypeFlags.Intersection) 
       && source !== globalObjectType 
       && target.flags & (TypeFlags.Object | TypeFlags.Intersection) 
-*     && isWeakType(target) 
-      && (getPropertiesOfType(source).length > 0 || typeHasCallOrConstructSignatures(source))
-
-isPerformingCommonPropertyChecks 값이 트루가 되기위한 조건으로 위크타입이 존재.
+*     && isWeakType(target) 위크타입을 만족하고
+*     && (getPropertiesOfType(source).length > 0 || typeHasCallOrConstructSignatures(source))
+*        프로퍼티의 랭스가 1이상(속성이 존재)이거나 생성자시그니처가 있는경우
 
 ! 위크타입이고, 속성을 for문 돌려서 공통속성이 없을 때 오류리포트 해줌
 */
+
+
 interface LineChartOptions {
 	logscale?: boolean
 	invertedYAxis?: boolean
@@ -82,8 +89,6 @@ type EveryStringKeySet = { [key:string]:unknown}
 
 let e: PropertySet = { a: 1 }
 let e2: NoPropertySet = e 
-
-
 
 type NoPropertySet = {} // 빈객체 - 수퍼셋
 type PropertySet = { a: number } // 빈객체의 부분집합
