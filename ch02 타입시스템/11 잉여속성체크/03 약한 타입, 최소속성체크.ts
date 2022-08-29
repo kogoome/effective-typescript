@@ -11,8 +11,10 @@ function isWeakType(type: Type): boolean {
     if (type.flags & TypeFlags.Object) {
         const resolved = resolveStructuredTypeMembers(type as ObjectType);
 
-        return resolved.callSignatures.length === 0 && resolved.constructSignatures.length === 0 && resolved.indexInfos.length === 0 &&
-            resolved.properties.length > 0 && every(resolved.properties, p => !!(p.flags & SymbolFlags.Optional));
+        return resolved.callSignatures.length === 0 
+            && resolved.constructSignatures.length === 0 && resolved.indexInfos.length === 0 
+            && resolved.properties.length > 0 
+            && every(resolved.properties, p => !!(p.flags & SymbolFlags.Optional));
     }
     if (type.flags & TypeFlags.Intersection) {
         return every((type as IntersectionType).types, isWeakType);
