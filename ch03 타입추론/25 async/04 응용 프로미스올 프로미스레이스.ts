@@ -13,8 +13,8 @@ async function fetchPages2() {
 	// * iterable 한 객체(ex. array)를 인수로 받고 리턴
 	// const result = await Promise.all([
 	//   fetch(url1),
-	// 	fetch(url2),
-	// 	fetch(url3),
+	// 	 fetch(url2),
+	// 	 fetch(url3),
 	// ])
 	// return result
 	// * 구조분해할당 찰떡
@@ -37,8 +37,8 @@ function fetchPagesCB() {
 	}
 	const urls = [url1, url2, url3]
 	urls.forEach((url, i) => {
-		fetchURL(url, (r) => {
-			responses[i] = url
+		fetchURL(url, (response) => {
+			responses[i] = response
 			numDone++
 			if (numDone === urls.length) done()
 		})
@@ -62,6 +62,7 @@ function timeout(ms: number): Promise<never> {
 	})
 	//* setTimeout은 이미 내장 비동기함수지만 리졸브 리젝트를 위해 프로미스로 래핑
 }
+
 // * 이 함수 리턴타입은 본래 Response | never, 유니온타입으로 구성되어져야 하지만, never는 공집합이므로 연산결과로서 Response 표기
 async function fetchWithTimeout(url: string, ms: number) {
 	return Promise.race([

@@ -16,10 +16,12 @@ async function fetchPages() {
  * 동기함수를 비동기함수로 강제
  * async 함수는 항상 프로미스를 반환하도록 강제
  * 가능하다면 promise보다 async/await 함수를 사용하는게 좋음
- * async/await 함수의 리턴타입은 자동추론이 일반함수만큼이나 용이함
+ * 불편한 resolve에 비해 async/await 함수의 리턴타입은 자동추론이 일반함수만큼이나 용이함
  * 일반적으로 더 간결하고 직관적인 코드 작성
  */
 
+// !  * async 함수는 항상 프로미스를 반환하도록 강제
+// * 함수 실행 순서를 조정하거나, 멀티스레드 병렬처리를 위해 사용할 수 있음
 // * 선언식에서 사용
 async function getNumber2() {
 	return 42
@@ -34,7 +36,7 @@ const getNumber = () => Promise.resolve(42)
 // ! 참고
 // * 최신문법은 async 없이 비동기 함수를 최상위 수준에서 await 호출하는게 가능
 await fetch(url1)
-// * 이전에 사용하던 방법
+// * 이전에 사용하던 방법 async 함수를 래핑해서 사용
 async function possibleAwait(url: string) {
 	return await fetch(url)
 }

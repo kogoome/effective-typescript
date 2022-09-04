@@ -27,13 +27,16 @@ function SyncAsyncMixedFn() {
 	}
 }
 
-console.log(SyncAsyncMixedFn()) // sync cached
-console.log(SyncAsyncMixedFn()) // async cached
-console.log(SyncAsyncMixedFn()) // async cached
-console.log(SyncAsyncMixedFn()) // async cached
-// * 함수를 실행해도 결과값의 상태가 비동기 처리과정에 따라 달라짐
-console.log(cache) // [ '1.sync' ] ​
-setTimeout(() => console.log(cache), 300)
-// [ '1.sync', '2.async', '3.async', '4.async' ]
+// * async await을 사용하면 원하는 결과값을 얻을 수 있음
+
+async function consol() {
+	console.log(await SyncAsyncMixedFn())
+	console.log(await SyncAsyncMixedFn())
+	console.log(await SyncAsyncMixedFn())
+	console.log(await SyncAsyncMixedFn())
+	console.log(cache)
+}
+consol()
+
 
 export default {}
