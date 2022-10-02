@@ -50,7 +50,7 @@ const rowsA = rawRows
 	.map((rowStr) => _.zipObject(headers, rowStr.split(',')))
 
 // * 메서드 설명
-_.zipObject(['name','age'], ['john',23]) // {name: 'John', age: '23}
+_.zipObject(['name','age'], ['john',23]) // {name: 'John', age: 23}
 /* 
 * Dictionary 타입은 {[key:string]:string}, Record<string, string>과 동일
 */

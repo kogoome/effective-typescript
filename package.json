@@ -1,22 +1,29 @@
 {
-  "name": "ef-ts",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/roy-jung/effective-typescript.git",
-  "author": "roy-jung <power4ce@gmail.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "@types/geojson": "^7946.0.8",
-    "@types/lodash": "^4.14.184",
-    "nodemon": "^2.0.12",
-    "ts-node": "^10.1.0",
-    "typescript": "^4.3.5"
-  },
-  "scripts": {
-    "start": "nodemon --exec 'ts-node' --cwd $INIT_CWD"
-  },
-  "dependencies": {
-    "lodash": "^4.17.21",
-    "lodash-es": "^4.17.21"
-  }
+	"name": "ef-ts",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "https://github.com/roy-jung/effective-typescript.git",
+	"author": "roy-jung <power4ce@gmail.com>",
+	"license": "MIT",
+	"types": "types",
+	"devDependencies": {
+		"@types/geojson": "^7946.0.8",
+		"@types/lodash": "^4.14.184",
+		"@types/node": "^18.7.23",
+		"@typescript-eslint/eslint-plugin": "^5.38.1",
+		"@typescript-eslint/parser": "^5.38.1",
+		"eslint": "^8.24.0",
+		"eslint-plugin-dtslint": "^3.0.1",
+		"nodemon": "^2.0.12",
+		"ts-node": "^10.1.0",
+		"typescript": "^4.3.5"
+	},
+	"scripts": {
+		"start": "nodemon --exec 'ts-node' --cwd $INIT_CWD"
+	},
+	"dependencies": {
+		"dtslint": "^4.2.1",
+		"lodash": "^4.17.21",
+		"lodash-es": "^4.17.21"
+	}
 }

@@ -39,7 +39,8 @@ panToR(loc4) // OK
 const loc5 = [1,2,3] as const
 panToR(loc5) 
 // ? 호출하는 곳에서 오류를 내보내준다는게 단점이라고 함. 중첩객체에서 오류 발생한다면 원인파악이 쉽지않다는데,
+// * 원문 This may be confusing, especially if the error occurs in a deeply nested object: 햇갈릴수 있다.
 // ? 오류내용에도 인수의 랭스가 길다는걸 잘 알려주고 있어서 원인파악이 어려운 이유를 모르겠음
-
+// * as const 의 경우 얕게 동작하기 때문에 값에 객체가 중첩되면 그 안에서 원인파악이 어렵다.
 
 export default {}

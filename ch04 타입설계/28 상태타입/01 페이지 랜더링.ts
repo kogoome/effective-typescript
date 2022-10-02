@@ -41,7 +41,6 @@ async function changePage(state: State, newPage: string) {
 state.error 를 초기화하지 않았기 때문에 페이지 전환중에 과거 에러를 보여줌
 페이지 로딩중에 사용자각 페이지를 바꾸면 예측불가
 오류거나, 응답순서에 따라 변화될수도 있음.
-
 */
 
 export default {}

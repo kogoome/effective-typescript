@@ -5,4 +5,5 @@ interface MonkeyDocument extends Document {
 
 ;(document as MonkeyDocument).monkey = 'Macaque'
 
+document.monkey = "asdf"
 export default {}

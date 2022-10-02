@@ -23,7 +23,7 @@
 
 	setLanguage('JavaScript') // OK
   // * let을 사용하면 변경가능성때문에 리터럴 타입으로 추론되지 않고 프리미티브 타입으로 추론
-	let language = 'JavaScript'
+	let language = 'JavaScript' 
 	setLanguage(language) // * 인수전달시 타입오류
   
   // * 해결1

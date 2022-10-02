@@ -16,7 +16,7 @@ complain({ language: 'TypeScript', organization: 'Microsoft' }) // OK
 const ts = {
   language: 'TypeScript',
   organization: 'Microsoft',
-}
+} 
 complain(ts)
 // ! 변수할당시 타입을 선언, 또는 단언이 필요
 export default {}

@@ -15,6 +15,8 @@ const namesB = _.map(allPlayers, player => player.name)
 // _.map은 프로퍼티만 명시하여 리턴시킬 수 있음.
 const namesC = _.map(allPlayers, 'name')
 
+
+
 const salaries = _.map(allPlayers, 'salary')
 const teams = _.map(allPlayers, 'team')
 const mix = _.map(allPlayers, Math.random() < 0.5 ? 'name' : 'salary')
